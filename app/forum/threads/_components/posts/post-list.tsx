@@ -283,22 +283,30 @@ function NestedPost({
                           <Trash2 className="mr-2 h-4 w-4" />
                           Delete
                         </DropdownMenuItem>
-                        <DropdownMenuItem
-                          // onClick={() => setDeleteDialogOpen(true)}
-                          onClick={handleFlag}
-                          className="text-destructive focus:text-destructive"
-                        >
-                          <FlagIcon className="mr-2 h-4 w-4" />
-                          Flag
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          // onClick={() => setDeleteDialogOpen(true)}
-                          onClick={handleUnFlag}
-                          className="text-green-500"
-                        >
-                          <FlagIcon className="mr-2 h-4 w-4 text-green-500" />
-                          UnFlag
-                        </DropdownMenuItem>
+                        {role === "admin" && (
+                          <div>
+                            {!post.isFlagged ? (
+                              <DropdownMenuItem
+                                // onClick={() => setDeleteDialogOpen(true)}
+                                onClick={handleFlag}
+                                className="text-red-500"
+                              >
+                                <FlagIcon className="mr-2 h-4 w-4 text-red-500" />
+                                Flag
+                              </DropdownMenuItem>
+                            ) : null}
+                            {post.isFlagged ? (
+                              <DropdownMenuItem
+                                // onClick={() => setDeleteDialogOpen(true)}
+                                onClick={handleUnFlag}
+                                className="text-green-600"
+                              >
+                                <FlagIcon className="mr-2 h-4 w-4 text-green-600" />
+                                Unflag
+                              </DropdownMenuItem>
+                            ) : null}
+                          </div>
+                        )}
                       </DropdownMenuContent>
                     </DropdownMenu>
                   )}

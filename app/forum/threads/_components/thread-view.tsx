@@ -200,9 +200,7 @@ export function ThreadView({ threadId }: ThreadViewProps) {
           </CardContent>
         </Card>
 
-        {canSeeSummary && postsData?.data?.posts?.length > 5 && (
-          <ThreadSummary threadId={threadId} />
-        )}
+        <ThreadSummary threadId={threadId} />
 
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Replies</h2>
